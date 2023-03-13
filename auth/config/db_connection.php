@@ -1,13 +1,12 @@
 <?php
 $servername = "localhost";
-$dbname='smdb';
+$dbname='tourist_db';
 $username = "root";
-$password = "root";
+$password = "";
 // Create connection
 $db = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($db->connect_error) {
-die("Connection failed: " . $db->connect_error);
+if (!$conn) {
+    echo "Connection to DB failed";
 }
-echo "success";
 ?>

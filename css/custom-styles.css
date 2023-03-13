@@ -1,0 +1,33 @@
+.vignette {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  hover: none;
+}
+.scroll-down:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.scroll-down p{
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-down-arrow {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  margin: 0 auto;
+}
