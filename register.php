@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Tourist - Share Your Story</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap Icons-->
@@ -23,8 +23,8 @@
 </head>
 
 <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-2">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="../../index.php">Tourist</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
@@ -33,8 +33,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
-                    <li class="nav-item"><a class="nav-link" href="auth\public\register.php">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="auth\public\login.php">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -49,15 +49,29 @@
                         An account will allow you to post stories and see how many people have seen them!</p>
                 </div>
             </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-4">
                 <div class="col-lg-6">
-                    <form id="contactForm" action="register_process.php" method="post">
+                    <form id="contactForm" action="php/register_process.php" method="post">
                         <?php
                         if (isset($_GET['error'])) { ?>
                             <p class="alert">
                                 <?php echo $_GET['error']; ?>
                             </p>
                         <?php } ?>
+                        <!-- First Name input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                                data-sb-validations="required" />
+                            <label for="name">First name</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <!-- Last Name input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                                data-sb-validations="required" />
+                            <label for="name">Last name</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="email" type="email" placeholder="name@example.com"
@@ -77,6 +91,31 @@
                             <div class="invalid-feedback" data-sb-feedback="password:password">Password is not valid.
                             </div>
                         </div>
+                        <!-- Confirm Password input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="phone" type="tel" placeholder="Retype Password"
+                                data-sb-validations="required" />
+                            <label for="phone">Retype Password</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
+                            </div>
+                        </div>
+                        <!-- Phone number input-->
+                        <!-- <div class="form-floating mb-3">
+                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
+                                data-sb-validations="required" />
+                            <label for="phone">Phone number</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
+                            </div>
+                        </div> -->
+                        <!-- Message input-->
+                        <!-- <div class="form-floating mb-3">
+                            <textarea class="form-control" id="message" type="text"
+                                placeholder="Enter your message here..." style="height: 10rem"
+                                data-sb-validations="required"></textarea>
+                            <label for="message">Message</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
+                            </div>
+                        </div> -->
                         <!-- Submit success message-->
                         <!---->
                         <!-- This is what your users will see when the form-->
@@ -104,10 +143,10 @@
                 </div>
             </div>
             <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-4 text-center mt-5 mb-lg-0">
-                    <p class="text-muted mb-4">
-                        Don't have an account?</p>
-                    <a class="btn btn-secondary btn-xl" href="#about">Create an account</a>
+                <div class="col-lg-4 text-center mb-lg-0">
+                    <p class="text-muted">
+                        Already have an account?</p>
+                    <a class="btn btn-secondary btn-xl" href="login.php">Login</a>
                 </div>
             </div>
         </div>

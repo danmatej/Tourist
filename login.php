@@ -33,8 +33,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
-                    <li class="nav-item"><a class="nav-link" href="auth\public\register.php">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="auth\public\login.php">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -43,79 +43,33 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6 text-center">
-                    <h2 class="mt-0">Let's Get You An Account!</h2>
+                    <h2 class="mt-0">Let's Get Logged In!</h2>
                     <hr class="divider" />
-                    <p class="text-muted mb-5">Ready to start sharing your life's adventures with others? <br>
-                        An account will allow you to post stories and see how many people have seen them!</p>
+                    <p class="text-muted mb-5">Once logged in, you can share a new story with others. <br>
+                        And keep track of how many people have have seen your stories so far!</p>
                 </div>
             </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-4">
                 <div class="col-lg-6">
-                    <form id="contactForm" action="register_process.php" method="post">
+                    <form id="contactForm" action="php/login_process.php" method="post">
                         <?php
                         if (isset($_GET['error'])) { ?>
                             <p class="alert">
                                 <?php echo $_GET['error']; ?>
                             </p>
                         <?php } ?>
-                        <!-- First Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
-                                data-sb-validations="required" />
-                            <label for="name">First name</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
-                        <!-- Last Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
-                                data-sb-validations="required" />
-                            <label for="name">Last name</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="name@example.com"
-                                data-sb-validations="required,email" />
+                            <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com"/>
                             <label for="email">Email address</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
 
                         <!-- Password input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="password" type="password" placeholder="Password"
-                                data-sb-validations="required, passsword" />
-                            <label for="email">Password</label>
-                            <div class="invalid-feedback" data-sb-feedback="password:required">A password is required.
-                            </div>
-                            <div class="invalid-feedback" data-sb-feedback="password:password">Password is not valid.
-                            </div>
+                            <input class="form-control" id="password" name="password" type="password" placeholder="Password"/>
+                            <label for="password">Password</label>
                         </div>
-                        <!-- Confirm Password input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="Retype Password"
-                                data-sb-validations="required" />
-                            <label for="phone">Retype Password</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
-                            </div>
-                        </div>
-                        <!-- Phone number input-->
-                        <!-- <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
-                                data-sb-validations="required" />
-                            <label for="phone">Phone number</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
-                            </div>
-                        </div> -->
-                        <!-- Message input-->
-                        <!-- <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" type="text"
-                                placeholder="Enter your message here..." style="height: 10rem"
-                                data-sb-validations="required"></textarea>
-                            <label for="message">Message</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
-                            </div>
-                        </div> -->
+
                         <!-- Submit success message-->
                         <!---->
                         <!-- This is what your users will see when the form-->
@@ -123,10 +77,6 @@
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
                                 <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a
-                                    href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                             </div>
                         </div>
                         <!-- Submit error message-->
@@ -145,8 +95,8 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-4 text-center mb-lg-0">
                     <p class="text-muted">
-                        Do you already have an account?</p>
-                    <a class="btn btn-secondary btn-xl" href="#about">Login</a>
+                        Don't have an account?</p>
+                    <a class="btn btn-secondary btn-xl" href="#about">Create an account</a>
                 </div>
             </div>
         </div>
