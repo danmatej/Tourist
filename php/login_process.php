@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'php/db_connection.php';
+include 'db_connection.php';
 // get user name and password from login form
 $email = $_POST['email'];   
 $password = $_POST['password'];
@@ -26,7 +26,7 @@ if (mysqli_num_rows($result) === 1) {
         $_SESSION['email'] = $row['email'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['id'] = $row['id'];
-        header("Location: stories.php");
+        header("Location: ../stories.php");
         exit();
     } else {
         header("Location: login.php?error=Incorect User name or password");
