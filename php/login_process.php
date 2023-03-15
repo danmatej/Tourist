@@ -8,11 +8,10 @@ $password = $_POST['password'];
 
 //if user name or password is empty redirect to login page with error message
 if (empty($email)) {
-    echo $email;
-    header("Location: login.php?error=Email is required");
+    header("Location: ./login.php?error=Email is required");
     exit();
 } else if (empty($password)) {
-    header("Location: login.php?error=Password is required");
+    header("Location: ../login.php?error=Password is required");
     exit();
 }
 // check input against database
@@ -29,11 +28,11 @@ if (mysqli_num_rows($result) === 1) {
         header("Location: ../stories.php");
         exit();
     } else {
-        header("Location: login.php?error=Incorect User name or password");
+        header("Location: ../login.php?error=Incorect User name or password");
         exit();
     }
 } else {
-    header("Location: login.php?error=Incorect User name or password");
+    header("Location: ../login.php?error=Incorect User name or password");
     exit();
 }
 ?>
