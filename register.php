@@ -20,6 +20,8 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/custom-styles.css" rel="stylesheet" />
+    <!-- jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -39,7 +41,7 @@
             </div>
         </div>
     </nav>
-    <section class="page-section" id="register">
+    <section class="page-section">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6 text-center">
@@ -51,31 +53,25 @@
             </div>
             <div class="row gx-4 gx-lg-5 justify-content-center mb-4">
                 <div class="col-lg-6">
-                    <form id="contactForm" action="php/register_process.php" method="post">
-                        <?php
-                        if (isset($_GET['error'])) { ?>
-                            <p class="alert">
-                                <?php echo $_GET['error']; ?>
-                            </p>
-                        <?php } ?>
+                    <form id="registerForm" action="php/register_process.php" method="post">
                         <!-- First Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="fname" name="fname" type="text"
-                                placeholder="Enter your first name..." data-sb-validations="required" />
-                            <label for="fname">First name</label>
+                            <input class="form-control" id="fName" name="fName" type="text" placeholder="First Name"
+                                required />
+                            <label for="fName">First name</label>
                             <!-- <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div> -->
                         </div>
                         <!-- Last Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="lname" name="lname" type="text"
-                                placeholder="Enter your name..." />
-                            <label for="lname">Last name</label>
+                            <input class="form-control" id="lName" name="lName" type="text" placeholder="Last Name"
+                                required />
+                            <label for="lName">Last name</label>
                             <!-- <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div> -->
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="email" name="email" type="email"
-                                placeholder="name@example.com" />
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Email"
+                                required />
                             <label for="email">Email address</label>
                             <!-- <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> -->
@@ -84,8 +80,8 @@
                         <!-- Password input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="password" name="password" type="password"
-                                placeholder="Password" />
-                            <label for="email">Password</label>
+                                placeholder="Password" required />
+                            <label for="assword">Password</label>
                             <!-- <div class="invalid-feedback" data-sb-feedback="password:required">A password is required.
                             </div>
                             <div class="invalid-feedback" data-sb-feedback="password:password">Password is not valid.
@@ -93,33 +89,37 @@
                         </div>
                         <!-- Confirm Password input--> <!-- validate using js -->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="passconf" type="password" placeholder="Retype Password" />
-                            <label for="phone">Retype Password</label>
+                            <input class="form-control" id="confirmPassword" type="password"
+                                placeholder="Retype Password" />
+                            <label for="confirmPassword">Retype Password</label>
                         </div>
-                        <!-- Check if signup success flag is set in the header -->
 
+                        <!-- JS Password Validation -->
+                        <div id="errorMessage"></div>
+
+                        <!-- Check if signup success flag is set in the header -->
                         <?php if (isset($_GET['registersuccess']) && $_GET['registersuccess'] == "true"): ?>
                             <div class="text-center alert alert-success" role="alert">
                                 <div class="fw-bolder">Your account has been created successfully!</div>
                             </div>
+                        <?php elseif ((isset($_GET['registersuccess']) && $_GET['registersuccess'] == "false" && isset($_GET['error']) && $_GET['error'] == "emailexists")): ?>
+                            <div class="text-center alert alert-danger" role="alert">
+                                <div class="fw-bolder">Email already registered!</div>
+                            </div>
+                        <?php elseif ((isset($_GET['registersuccess']) && $_GET['registersuccess'] == "false")): ?>
+                            <div class="text-center alert alert-danger" role="alert">
+                                <div class="fw-bolder">There was an error creating your account!</div>
+                            </div>
                         <?php endif; ?>
 
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3">Error sending message!</div>
-                        </div>
                         <!-- Submit Button / Home Button-->
                         <?php if (isset($_GET['registersuccess']) && $_GET['registersuccess'] == "true"): ?>
                             <div class="d-grid"><a class="btn btn-primary btn-xl" id="submitButton"
                                     href="index.php">Home</a></div>
                         <?php else: ?>
                             <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton"
-                                    type="submit">Submit</button></div>
+                                    type="submit" disabled>Submit</button></div>
                         <?php endif; ?>
-
                     </form>
                 </div>
             </div>
@@ -145,7 +145,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="js/custom-scripts.js"></script>
 </body>
 
 </html>

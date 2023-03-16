@@ -39,7 +39,7 @@
             </div>
         </div>
     </nav>
-    <section class="page-section" id="contact">
+    <section class="page-section">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6 text-center">
@@ -51,7 +51,7 @@
             </div>
             <div class="row gx-4 gx-lg-5 justify-content-center mb-4">
                 <div class="col-lg-6">
-                    <form id="contactForm" action="php/login_process.php" method="post">
+                    <form id="loginForm" action="php/login_process.php" method="post">
                         <?php
                         if (isset($_GET['error'])) { ?>
                             <p class="alert">
