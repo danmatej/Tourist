@@ -12,20 +12,19 @@ if (!empty($fName) && !empty($lName) && !empty($email) && !empty($password)) {
     $result = mysqli_query($db, $sql);
     $numRows = mysqli_num_rows($result);
     if ($numRows > 0) {
-        header("Location: ../register.php?registersuccess=false&error=emailexists");
+        header("Location: ../register.php?sucess=false&error=emailexists");
         exit();
     } else {
         $sql = "INSERT INTO users (first_name, last_name, email, password) VALUES ('$fName', '$lName', '$email', '$password')";
         $result = mysqli_query($db, $sql);
         if ($result) {
-            $showAlert = true;
-            header("Location: ../register.php?registersuccess=true");
+            header("Location: ../register.php?sucess=true");
             exit();
         }
     }
 } else {
     //implement error message
-    header("Location: ../register.php?registersuccess=false");
+    header("Location: ../register.php?sucess=false");
     exit();
 }
 ?>

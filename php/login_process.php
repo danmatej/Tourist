@@ -24,15 +24,15 @@ if (mysqli_num_rows($result) === 1) {
     if ($row['email'] === $email && $row['password'] === $password) {
         $_SESSION['email'] = $row['email'];
         $_SESSION['name'] = $row['name'];
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['user_id'] = $row['user_id'];
         header("Location: ../stories.php");
         exit();
     } else {
-        header("Location: ../login.php?error=Incorect User name or password");
+        header("Location: ../login.php?error=Incorect username or password");
         exit();
     }
 } else {
-    header("Location: ../login.php?error=Incorect User name or password");
+    header("Location: ../login.php?error=Incorect username or password");
     exit();
 }
 ?>
