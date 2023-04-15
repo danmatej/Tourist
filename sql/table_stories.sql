@@ -4,6 +4,7 @@ CREATE TABLE stories (
     description text NOT NULL,
     location varchar(255) NOT NULL,
     category varchar(255) NOT NULL,
+    created_on date NOT NULL,
     img_url varchar(255) NOT NULL,
     user_id INT NOT NULL,
     PRIMARY KEY  (story_id),

@@ -12,6 +12,8 @@
 #    //implement error message
 ##    header("Location: index.php?signupsuccess=false");
 
+##### STORY FILTERING, NEWLY CREATED STORY SHOULD DISPLAY IT
+
 
 ### create a view for user stories
 Assuming that the user_id column in the stories table is a foreign key that references the id column in the users table, you can create a SQL view that joins these two tables and filters the result to show only the stories that are connected with a particular user.

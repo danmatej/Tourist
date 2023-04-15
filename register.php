@@ -84,7 +84,27 @@ include_once("header_light.php");
             </div>
         </div>
     </section>
+    <script src="js/custom-scripts.js"></script>
+<!-- <script>
+    // JS Password Validation
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const errorMessage = document.getElementById("errorMessage");
+    const submitButton = document.getElementById("submitButton");
 
+    function validatePassword() {
+        if (password.value != confirmPassword.value) {
+            errorMessage.innerHTML = "Passwords do not match!";
+            submitButton.disabled = true;
+        } else {
+            errorMessage.innerHTML = "";
+            submitButton.disabled = false;
+        }
+    }
+
+    password.addEventListener("change", validatePassword);
+    confirmPassword.addEventListener("keyup", validatePassword);
+</script> -->
 <?php 
     include_once("footer.php");
 ?>

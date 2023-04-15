@@ -23,8 +23,9 @@ if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
     if ($row['email'] === $email && $row['password'] === $password) {
         $_SESSION['email'] = $row['email'];
-        $_SESSION['name'] = $row['name'];
+        $_SESSION['first_name'] = $row['first_name'];
         $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['is_admin'] = $row['is_admin'];
         header("Location: ../stories.php");
         exit();
     } else {
